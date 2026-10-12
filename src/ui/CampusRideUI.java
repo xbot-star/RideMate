@@ -167,10 +167,17 @@ public class CampusRideUI {
     private void initFrame() {
         mainFrame = new JFrame("RouteMate - NSSCE College Ride Sharing System");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(1040, 720);
-        mainFrame.setMinimumSize(new Dimension(920, 640));
-        mainFrame.setLocationRelativeTo(null);
-
+        if (System.getenv("RIDEMATE_KIOSK") != null) {
+    // Running on the server: fill the whole virtual screen, no title bar
+    mainFrame.setUndecorated(true);
+    mainFrame.setSize(1100, 760);
+    mainFrame.setLocation(0, 0);
+} else {
+    // Running locally on a desktop: normal window
+    mainFrame.setSize(1040, 720);
+    mainFrame.setMinimumSize(new Dimension(920, 640));
+    mainFrame.setLocationRelativeTo(null);
+}
         cardLayout = new CardLayout();
         mainContainer = new JPanel(cardLayout);
         mainContainer.setBackground(COLOR_CREAM);
