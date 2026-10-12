@@ -18,6 +18,7 @@ COPY start.sh /start.sh
 
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
+ENV RIDEMATE_KIOSK=1
 
 RUN mkdir -p bin \
     && javac -encoding UTF-8 -d bin $(find src -name "*.java") \
