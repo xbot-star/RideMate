@@ -16,7 +16,7 @@ websockify --web=/usr/share/novnc "$PORT" localhost:5900 &
 # 2) Virtual screen and window manager
 Xvfb :99 -screen 0 1280x800x24 &
 sleep 2
-fluxbox &
+fluxbox >/dev/null 2>&1 &
 
 # 3) VNC server (set VNC_PASSWORD in Render to require a password)
 if [ -n "$VNC_PASSWORD" ]; then
