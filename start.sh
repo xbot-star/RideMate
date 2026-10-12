@@ -29,6 +29,6 @@ sleep 1
 # 4) The Java app (restarts if the window is closed / app exits)
 cd /app
 while true; do
-  java -Xmx300m -cp bin Main || true
+  java -Xmx300m -Dfile.encoding=UTF-8 -cp bin Main || true
   sleep 1
 done
